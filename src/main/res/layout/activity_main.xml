@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="3"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mbanner"/>
+
+</LinearLayout>
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:layout_weight="3">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/custom2_button"
+        android:onClick="go"
+        android:text="버스노선            검색"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:layout_weight="5" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/custom2_button"
+        android:onClick="go2"
+        android:text="정류소 이름       검색"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:layout_weight="5" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/custom2_button"
+        android:onClick="go3"
+        android:text="지역이름            찾기"
+        android:textColor="#ffffff" />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="5"
+            android:background="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="99dp"
+            android:layout_height="99dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom2_button"
+            android:onClick="go4"
+            android:text="즐겨찾기            목록"
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="5"
+            android:background="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="99dp"
+            android:layout_height="99dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom2_button"
+            android:onClick="go5"
+            android:text="제작자                 정보"
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="5"
+            android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
