@@ -44,6 +44,7 @@ public class NewActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //editText에 글자를 입력하면 발생하는 이벤트인데 입력한글자랑 listview내용이랑 비교해서 맞는 항목을 보여주는 코드
                 filterText = editText.getText().toString() ;
                 if (filterText.length() > 0) {
                     list_excel.setFilterText(filterText) ;
@@ -51,40 +52,40 @@ public class NewActivity extends Activity {
                 else {
                     list_excel.clearTextFilter() ;
                 }
-                n=1;
+                n=1; //editText가 발생했는지 안했는지 알아보기위한 변수 값 설정
             }
             @Override
             public void afterTextChanged(Editable s) {
             }
         });
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        excel = Excel();
+        excel = Excel(); //excel 문자열에 lineid값이 저장된 스트링버퍼를 문자열로변환해서 저장
         list_excel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, final int position, final long id) {
-                new Thread(new Runnable() {
+                new Thread(new Runnable() { //여러개의 작업을 동시에 처리해야하기때문에 스레드를 생성
                     @Override
                     public void run() {
                         TextView tv = (TextView)view;
                         line = tv.getText().toString();
-                        lines = excel.split(System.getProperty("line.separator"));
-                        lines2 = buf.split(System.getProperty("line.separator"));
-                        if(n!=0){
+                        lines = excel.split(System.getProperty("line.separator")); //스트링버퍼에서 저장된 값을 라인별로 나누어서 스트링배열에 순서대로 저장
+                        lines2 = buf.split(System.getProperty("line.separator")); //스트링버퍼에서 저장된 값을 라인별로 나누어서 스트링배열에 순서대로 저장
+                        if(n!=0){ //n은 editText에 값을 입력을 했는지 안했는지 알아보기위해서 만든 변수이고 입력했다면 n값이 1증가되기때문에 position값을 조정해야한다.
                             for(int i=0; i<lines2.length; i++){
-                                if(lines2[i].equals(line))
+                                if(lines2[i].equals(line)) //입력한값과 lines2배열에 값들중 일치하는 것의 배열순서i를 알아내서 m에 저장
                                     m=i;
                             }
                             lineid = lines[m];
                         }
-                        else{
+                        else{ //입력을 안했다면 position값은 변화없기때문에 순서대로 저장
                             lineid = lines[position];
                         }
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Intent intent = new Intent(NewActivity.this, BuslineInfo.class);
-                                intent.putExtra("linenum", line);
-                                intent.putExtra("key", lineid);
+                                intent.putExtra("linenum", line); //다음 액티비티에 필요한 값(노선 번호)
+                                intent.putExtra("key", lineid); //다음 액티비티에 필요한 값(lineid)
                                 startActivity(intent);
                             }
                         });
@@ -98,7 +99,7 @@ public class NewActivity extends Activity {
         startActivity(intent);
     }
     public String Excel() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuffer buffer = new StringBuffer(); //스트링버퍼에 저장하는 이유는 스트링에 연결할때 빠르고 새로운 값을 계속 넣기때문에 저장하는데도 편리하기때문
         StringBuffer buffer2 = new StringBuffer();
         Workbook workbook = null;
         Sheet sheet = null;
@@ -108,11 +109,11 @@ public class NewActivity extends Activity {
             sheet = workbook.getSheet(0);
             int MaxColumn = 2, RowStart = 0, RowEnd = sheet.getColumn(MaxColumn - 1).length -1, ColumnStart = 0, ColumnEnd = sheet.getRow(2).length - 1;
             for(int row = RowStart;row <= RowEnd;row++) {
-                String excelload = sheet.getCell(ColumnStart, row).getContents();
-                String excelload2 = sheet.getCell(ColumnStart+1, row).getContents();
+                String excelload = sheet.getCell(ColumnStart, row).getContents(); //엑셀의 첫번째 열에서 행의값만 증가시켜서 계속 저장
+                String excelload2 = sheet.getCell(ColumnStart+1, row).getContents(); //엑셀의 두번째 열에서 행의값만 증가시켜서 계속 저장
                 arrayAdapter.add(excelload);
-                buffer.append(excelload2);
-                buffer.append("\n");
+                buffer.append(excelload2); //스트링버퍼에 값을 저장
+                buffer.append("\n"); //라인별로 나누는 기준을위해서 \n을 저장
                 buffer2.append(excelload);
                 buffer2.append("\n");
             }
@@ -124,7 +125,7 @@ public class NewActivity extends Activity {
             list_excel.setAdapter(arrayAdapter);
             workbook.close();
         }
-        buf = buffer2.toString();
-        return buffer.toString();
+        buf = buffer2.toString(); //저장한 스트링버퍼를 문자열로 변환하고 문자열에 저장
+        return buffer.toString(); //문자열로 변환한 스트링버퍼를 return
     }
 }

@@ -21,6 +21,7 @@
 
         <EditText
             android:id="@+id/editText"
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
@@ -32,6 +33,7 @@
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
+        android:background="#FFFFFF"
         android:layout_height="match_parent"
         android:id="@+id/list_excel"
         android:textFilterEnabled="true"

@@ -55,14 +55,14 @@ public class New2Activity extends Activity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String filterText = editText.getText().toString() ;
-                if (filterText.length() > 0) {
+                String filterText = editText.getText().toString() ; //editText에 입력한 값을 문자열에 저장
+                if (filterText.length() > 0) { //입력한다면 실행
                     list_excel.setFilterText(filterText) ;
                 }
                 else {
                     list_excel.clearTextFilter() ;
                 }
-                n=1;
+                n=1; //입력이 일어났는지 안일어났는지 확인을 위한 변수 설정
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -78,21 +78,25 @@ public class New2Activity extends Activity {
                     public void run() {
                         TextView tv = (TextView)view;
                         name = tv.getText().toString().trim();
-                        lines = arsno.split(System.getProperty("line.separator"));
-                        lines2 = bstopid.split(System.getProperty("line.separator"));
-                        lines3 = compare.split(System.getProperty("line.separator"));
-                        if(n!=0){
+                        lines = arsno.split(System.getProperty("line.separator")); //arsno값을 라인단위로 구분해서 스트링 배열에 저장
+                        lines2 = bstopid.split(System.getProperty("line.separator")); //bstopid값을 라인단위로 구분해서 스트링 배열에 저장
+                        lines3 = compare.split(System.getProperty("line.separator")); //버스정류장 이름을 라인단위로 구분해서 스트링 배열에 저장
+                        if(n!=0){ //editText에 값을 입력하면 실행되는 부분
                             for(int i=0; i<lines3.length; i++){
-                                if(lines3[i].equals(name))
-                                    m=i;
+                                if(lines3[i].equals(name)) {
+                                    m = i;
+                                    bsid = lines2[m];
+                                    x = getX(name,lines[m]);
+                                    y = getY(name,lines[m]);
+                                    break;
+                                }
                             }
-                            bsid = lines2[m];
                         }
-                        else{
+                        else{ //입력값이 없다면 실행되는 부분
                             bsid = lines2[position];
+                            x = getX(name,lines[position]);
+                            y = getY(name,lines[position]);
                         }
-                        x = getX(name,lines[position]);
-                        y = getY(name,lines[position]);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -114,9 +118,9 @@ public class New2Activity extends Activity {
         startActivity(intent);
     }
     public String Excel() {
-        StringBuffer buffer = new StringBuffer();
-        StringBuffer buffer2 = new StringBuffer();
-        StringBuffer buffer3 = new StringBuffer();
+        StringBuffer buffer = new StringBuffer(); //arsno를 저장하는 스트링배열 선언
+        StringBuffer buffer2 = new StringBuffer(); //bstopid를 저장하는 스트링배열 선언
+        StringBuffer buffer3 = new StringBuffer(); //정류장이름을 저장하는 스트링배열 선언
         Workbook workbook = null;
         Sheet sheet = null;
         try {
@@ -125,9 +129,9 @@ public class New2Activity extends Activity {
             sheet = workbook.getSheet(0);
             int MaxColumn = 2, RowStart = 0, RowEnd = sheet.getColumn(MaxColumn - 1).length -1, ColumnStart = 0, ColumnEnd = sheet.getRow(2).length - 1;
             for(int row = RowStart;row <= RowEnd;row++) {
-                String excelload = sheet.getCell(ColumnStart, row).getContents();
-                String excelload2 = sheet.getCell(ColumnStart+1, row).getContents();
-                String excelload3 = sheet.getCell(ColumnStart+2, row).getContents();
+                String excelload = sheet.getCell(ColumnStart, row).getContents(); //첫번째 열의 행값들을 읽는다
+                String excelload2 = sheet.getCell(ColumnStart+1, row).getContents(); //두번째 열의 행값들을 읽는다
+                String excelload3 = sheet.getCell(ColumnStart+2, row).getContents(); //세번째 열의 행값들을 읽는다
                 arrayAdapter.add(excelload);
                 buffer.append(excelload2);
                 buffer.append("\n");
@@ -148,7 +152,7 @@ public class New2Activity extends Activity {
         compare = buffer3.toString();
         return buffer.toString();
     }
-    String getX(String a, String b){ // editText에 line아이디 입력시 해당 라인아이디에 해당하는 값 파싱해오는 것인듯????
+    String getX(String a, String b){ //xml에서 지도좌표 X를 파싱해오는 함수
         StringBuffer buffer = new StringBuffer();
         String str = a;
         String str2 = b;
@@ -200,7 +204,7 @@ public class New2Activity extends Activity {
         }
         return buffer.toString();
     }
-    String getY(String a, String b){ // editText에 line아이디 입력시 해당 라인아이디에 해당하는 값 파싱해오는 것인듯????
+    String getY(String a, String b){ //xml에서 지도좌표 Y를 파싱해오는 함수
         StringBuffer buffer = new StringBuffer();
         String str = a;
         String str2 = b;

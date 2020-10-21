@@ -1,7 +1,7 @@
 package com.example.bj.test;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,31 +9,28 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class New3Activity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
-    private String buf="";
+public class New3Activity extends Activity implements AdapterView.OnItemClickListener{
     private int count=0;
-    String[] s = {"북구","부산진구","동구", "동래구", "강서구", "금정구", "기장군", "해운대구",
-            "중구", "남구", "사하구","사상구","서구", "수영구", "영도구", "연제구"};
-    TextView tv;
-    GridView gv;
-    ArrayAdapter adapter;
+    private String[] s = {"강서구", "금정구", "남구", "북구", "서구",
+            "중구", "동구", "동래구", "부산진구", "사하구", "사상구", "연제구", "영도구", "수영구", "해운대구", "기장군"};
+    private TextView tv;
+    private GridView gv;
+    private ArrayAdapter adapter;
     private ListView list_excel;
     ArrayAdapter<String> arrayAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new4);
+        setContentView(R.layout.activity_new3);
         tv = (TextView) findViewById(R.id.textview);
         gv = (GridView) findViewById(R.id.gridview);
 
@@ -62,7 +59,6 @@ public class New3Activity extends AppCompatActivity implements AdapterView.OnIte
 
         //StringBuffer buffer = new StringBuffer();
         //StringBuffer buffer2 = new StringBuffer();
-
         Workbook workbook = null;
         Sheet sheet = null;
         try {
@@ -94,66 +90,82 @@ public class New3Activity extends AppCompatActivity implements AdapterView.OnIte
         TextView gutv = (TextView)findViewById(R.id.textview);
         if(tv.getText().equals("북구")) {
             Excel(1);
+            count = position;
             gutv.setText("북구");
         }
         else if(tv.getText().equals("부산진구")) {
             Excel(2);
+            count = position;
             gutv.setText("부산진구");
         }
         else if(tv.getText().equals("동구")) {
             Excel(3);
+            count = position;
             gutv.setText("동구");
         }
         else if(tv.getText().equals("동래구")) {
             Excel(4);
+            count = position;
             gutv.setText("동래구");
         }
         else if(tv.getText().equals("강서구")) {
             Excel(5);
+            count = position;
             gutv.setText("강서구");
         }
         else if(tv.getText().equals("금정구")) {
             Excel(6);
+            count = position;
             gutv.setText("금정구");
         }
         else if(tv.getText().equals("기장군")) {
             Excel(7);
+            count = position;
             gutv.setText("기장군");
         }
         else if(tv.getText().equals("해운대구")) {
             Excel(8);
+            count = position;
             gutv.setText("해운대구");
         }
         else if(tv.getText().equals("중구")) {
             Excel(9);
+            count = position;
             gutv.setText("중구");
         }
         else if(tv.getText().equals("남구")) {
             Excel(10);
+            count = position;
             gutv.setText("남구");
         }
         else if(tv.getText().equals("사하구")) {
             Excel(11);
+            count = position;
             gutv.setText("사하구");
         }
         else if(tv.getText().equals("사상구")) {
             Excel(12);
+            count = position;
             gutv.setText("사상구");
         }
         else if(tv.getText().equals("서구")) {
             Excel(13);
+            count = position;
             gutv.setText("서구");
         }
         else if(tv.getText().equals("수영구")) {
             Excel(14);
+            count = position;
             gutv.setText("수영구");
         }
         else if(tv.getText().equals("영도구")) {
             Excel(15);
+            count = position;
             gutv.setText("영도구");
         }
         else if(tv.getText().equals("연제구")) {
             Excel(16);
+            count = position;
             gutv.setText("연제구");
         }
 

@@ -18,6 +18,7 @@
             android:background="@drawable/backb" />
         <TextView
             android:id="@+id/textView"
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -25,10 +26,15 @@
             android:textSize="20dp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/list_excel"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="2dp"
+        android:background="#1565BF" />
+            <ListView
+                android:id="@+id/list_excel"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
 

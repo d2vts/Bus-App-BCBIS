@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="univs">
+        <item>경남정보대학교</item>
+        <item>경성대학교</item>
+        <item>고신대학교</item>
+        <item>대동대학교</item>
+        <item>동명대학교</item>
+        <item>동부산대학교</item>
+        <item>동서대학교</item>
+        <item>동아대학교</item>
+        <item>동의과학대학교</item>
+        <item>동의대학교</item>
+        <item>동주대학교</item>
+        <item>부경대학교</item>
+        <item>부산가톨릭대학교</item>
+        <item>부산경상대학교</item>
+        <item>부산과학기술대학교</item>
+        <item>부산교육대학교</item>
+        <item>부산대학교</item>
+        <item>부산디지털대학교</item>
+        <item>부산여자대학교</item>
+        <item>부산예술대학교</item>
+        <item>부산외국어대학교</item>
+        <item>신라대학교</item>
+        <item>영산대학교</item>
+        <item>인제대학교</item>
+        <item>한국방송통신대학교(부산)</item>
+        <item>한국해양대학교</item>
+    </string-array>
+</resources>

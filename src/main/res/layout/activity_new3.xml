@@ -23,6 +23,7 @@
 
         <GridView
             android:id="@+id/gridview"
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -47,6 +48,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:scrollbars="vertical"
             android:id="@+id/list_excel">
         </ListView>

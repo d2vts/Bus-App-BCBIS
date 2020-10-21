@@ -10,16 +10,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".GuMap"></activity>
+        <activity android:name=".univMap"></activity>
+        <activity android:name=".GuMap" />
         <activity android:name=".BookMark" />
-        <activity android:name=".New4Activity" />
+
+        <uses-library android:name="com.google.android.maps" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,8 +32,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" /> <!-- android:theme="@style/AppTheme" -->
-        <uses-library android:name="com.google.android.maps" />
+            android:value="AIzaSyBtqhfl15L7zezCd-15y0XWG5f4veyDIRU" />
 
         <activity android:name=".BuslineInfo" />
         <activity android:name=".BusstopDetail" />
@@ -39,6 +40,7 @@
         <activity android:name=".New3Activity" />
         <activity android:name=".New2Activity" />
         <activity android:name=".NewActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -49,7 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -5,8 +5,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="8">
 
         <ImageButton
             android:id="@+id/home"
@@ -19,13 +20,45 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:gravity="center"
-            android:textSize="30dp"
+            android:textSize="30sp"
+            android:background="#ffffff"
             android:layout_height="match_parent"
             android:text="즐겨찾기 목록" />
     </LinearLayout>>
 
-    <ListView
-        android:id="@+id/list_bookmark"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/list_bookmark"
+            android:layout_width="300dp"
+            android:background="#FFFFFF"
+            android:layout_height="match_parent" />
+
+
+        <ImageButton
+            android:id="@+id/alarm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/pincon" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/treshcon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+    </LinearLayout>
 </LinearLayout>

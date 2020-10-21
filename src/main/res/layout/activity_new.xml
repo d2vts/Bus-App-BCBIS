@@ -20,6 +20,7 @@
             android:background="@drawable/backb" />
 
         <EditText
+            android:background="#FFFFFF"
             android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -31,6 +32,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
+            android:background="#FFFFFF"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_weight="1"
@@ -38,6 +40,7 @@
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
+        android:background="#FFFFFF"
         android:layout_height="match_parent"
         android:id="@+id/list_excel"
         android:textFilterEnabled="true"
